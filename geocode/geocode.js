@@ -1,4 +1,5 @@
 const request = require('request');
+const ftc = require('fahrenheit-to-celsius');
 
 var geocodeAddress = (address, callback) => {
     var encodedAddress = encodeURIComponent(address);
@@ -22,4 +23,19 @@ var geocodeAddress = (address, callback) => {
     });
 };
 
+var geoAddressWeather = (lat, lon) => {
+    request({
+        url: `https://api.darksky.net/forecast/51db297c0dc81dcb16277b12670c05a9/${lat},${lon}`,
+        json: true
+    }, (error, response, body) => {
+        var temperature = ftc(body.currently.temperature);
+        var temperatureC = Math.round((temperature * 10)/10);
+        console.log(`Temperature is: ${temperatureC}`);
+        // console.log(JSON.stringify(body.currently.temperature, undefined, 2)); 
+
+    });
+};
+
 module.exports.geocodeAddress = geocodeAddress;
+
+module.exports.geoAddressWeather = geoAddressWeather;

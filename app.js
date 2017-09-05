@@ -22,6 +22,8 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
         console.log(errorMessage);
     } else {
         console.log(JSON.stringify(results, undefined, 2));
+        console.log(`Getting weather for: ${results.address}`);
+        geocode.geoAddressWeather(results.latitude, results.longitude);
     }
 });
 
