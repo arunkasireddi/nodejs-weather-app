@@ -36,6 +36,7 @@ var geoAddressWeather = (lat, lon) => {
     });
 };
 
-module.exports.geocodeAddress = geocodeAddress;
-
-module.exports.geoAddressWeather = geoAddressWeather;
+module.exports = {
+    geocodeAddress,
+    geoAddressWeather
+}
