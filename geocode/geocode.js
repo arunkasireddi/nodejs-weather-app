@@ -29,9 +29,10 @@ var geoAddressWeather = (lat, lon) => {
         json: true
     }, (error, response, body) => {
         var temperature = ftc(body.currently.temperature);
-        var temperatureC = Math.round((temperature * 10)/10);
-        console.log(`Temperature is: ${temperatureC}`);
-        // console.log(JSON.stringify(body.currently.temperature, undefined, 2)); 
+        var temperatureC = Math.round((temperature * 10) / 10);
+        console.log(`Temperature at location: ${temperatureC}`);
+        // console.log('Resposne body ---------------');
+        // console.log(JSON.stringify(body, undefined, 2)); 
 
     });
 };
