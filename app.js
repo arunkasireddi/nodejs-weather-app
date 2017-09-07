@@ -18,6 +18,7 @@ const argv = yargs
 
 var encodedAddress = encodeURIComponent(argv.address);
 
+
 geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     if (errorMessage) {
         console.log(errorMessage);
@@ -27,7 +28,7 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
                 console.log(errorMessage);
             }
             else {
-                console.log(`Weather at ${results.address} is ${weatherResults.temperatureInCelsius} °C`);
+                console.log(`Weather at ${results.address} is ${weatherResults.temperatureInCelsius}°C`);
             }
         });
     }
