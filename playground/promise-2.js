@@ -4,6 +4,8 @@ var geocodeAddress = (address) => {
     // return promise with resolve and reject
     return new Promise((resolve, reject) =>{
         var encodedAddress = encodeURIComponent(address);
+        // request by default doesn't support promises
+        // here we wrap the request function call inside a promise
         request({
             url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
             json: true
